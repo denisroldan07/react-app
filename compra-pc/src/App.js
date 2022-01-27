@@ -1,24 +1,68 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { Navbar ,NavbarBrand ,NavbarToggler,  Collapse , Nav , NavItem , NavLink ,
+          UncontrolledDropdown,DropdownMenu,DropdownToggle,DropdownItem,NavbarText } from 'reactstrap';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+
+<div>
+  <Navbar
+    color="dark"
+    dark
+    expand="md"
+    light
+  >
+    <NavbarBrand href="/">
+      compraPc
+    </NavbarBrand>
+    <NavbarToggler onClick={function noRefCheck(){}} />
+    <Collapse navbar>
+      <Nav
+        className="me-auto"
+        navbar
+      >
+        <NavItem>
+          <NavLink href="/components/">
+            Home
+          </NavLink>
+        </NavItem>
+        <NavItem>
+          <NavLink href="https://github.com/reactstrap/reactstrap">
+            GitHub
+          </NavLink>
+        </NavItem>
+        <UncontrolledDropdown
+          inNavbar
+          nav
         >
-          Learn React
-        </a>
-      </header>
-    </div>
+          <DropdownToggle
+            caret
+            nav
+          >
+            Carrito
+          </DropdownToggle>
+          <DropdownMenu right>
+            <DropdownItem>
+              Option 1
+            </DropdownItem>
+            <DropdownItem>
+              Option 2
+            </DropdownItem>
+            <DropdownItem divider />
+            <DropdownItem>
+              Reset
+            </DropdownItem>
+          </DropdownMenu>
+        </UncontrolledDropdown>
+      </Nav>
+      <NavbarText>
+        Simple Text
+      </NavbarText>
+    </Collapse>
+  </Navbar>
+</div>
+    
   );
 }
 
