@@ -1,67 +1,16 @@
 import React from 'react';
-import { Navbar ,NavbarBrand ,NavbarToggler,  Collapse , Nav , NavItem , NavLink ,
-          UncontrolledDropdown,DropdownMenu,DropdownToggle,DropdownItem,NavbarText } from 'reactstrap';
-
+import NavBar from './NavBar/NavBar';
+import './NavBar/NavBar.css';
 
 function App() {
   return (
 
-<div>
-  <Navbar
-    color="dark"
-    dark
-    expand="md"
-    light
-  >
-    <NavbarBrand href="/">
-      compraPc
-    </NavbarBrand>
-    <NavbarToggler onClick={function noRefCheck(){}} />
-    <Collapse navbar>
-      <Nav
-        className="me-auto"
-        navbar
-      >
-        <NavItem>
-          <NavLink href="/components/">
-            Home
-          </NavLink>
-        </NavItem>
-        <NavItem>
-          <NavLink href="https://github.com/reactstrap/reactstrap">
-            GitHub
-          </NavLink>
-        </NavItem>
-        <UncontrolledDropdown
-          inNavbar
-          nav
-        >
-          <DropdownToggle
-            caret
-            nav
-          >
-            Carrito
-          </DropdownToggle>
-          <DropdownMenu right>
-            <DropdownItem>
-              Option 1
-            </DropdownItem>
-            <DropdownItem>
-              Option 2
-            </DropdownItem>
-            <DropdownItem divider />
-            <DropdownItem>
-              Reset
-            </DropdownItem>
-          </DropdownMenu>
-        </UncontrolledDropdown>
-      </Nav>
-      <NavbarText>
-        Simple Text
-      </NavbarText>
-    </Collapse>
-  </Navbar>
-</div>
+    <div>
+
+    <NavBar></NavBar>
+
+    </div>
+
     
   );
 }
