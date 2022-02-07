@@ -5,10 +5,8 @@ export default function ItemCount({stock , initial , onAdd}) {
     
     function Suma() { 
     
-        setCounter(counter + 1);
-        if(counter > stock){
-            counter = stock;
-        }
+        setCounter(Math.min(counter + 1 , stock));
+
 
     }
 
