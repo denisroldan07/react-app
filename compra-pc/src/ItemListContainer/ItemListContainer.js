@@ -1,14 +1,14 @@
 import { Card , CardBody,CardTitle,CardSubtitle,CardLink, CardText } from "reactstrap";
 import ItemCount from './ItemCount'
 
-export default function itemContainer({desafio}) 
+export default function itemContainer({greeting}) 
 {  
     return (
         <div>
   <Card>
     <CardBody>
       <CardTitle tag="h5">
-        {desafio} !!
+        {greeting} !!
       </CardTitle>
       <CardSubtitle
         className="mb-2 text-muted"
@@ -29,7 +29,7 @@ export default function itemContainer({desafio})
         Some quick example text to build on the card title and make up the bulk of the card's content.
       </CardText>
       <CardLink href="#">
-        <ItemCount></ItemCount>
+        <ItemCount stock={5} initial={1}></ItemCount>
       </CardLink>
       <CardLink href="#">
         Another Link

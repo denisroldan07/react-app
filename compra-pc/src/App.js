@@ -20,7 +20,7 @@ function App() {
 
             <Col className='bg-success' md="8">
               <p className='text-center'>Columna de 8</p>
-              <ItemListContainer desafio={"Greeting"}></ItemListContainer>
+              <ItemListContainer greeting={"Greeting"}></ItemListContainer>
             </Col>
 
           </Row>

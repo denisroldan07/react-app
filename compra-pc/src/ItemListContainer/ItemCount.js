@@ -1,22 +1,28 @@
 import { useState } from "react";
 
-export default function ItemCount() {
-    const [counter , setCounter] = useState(0);
+export default function ItemCount({stock , initial , onAdd}) {
+    const [counter , setCounter] = useState(initial);
     
     function Suma() { 
     
         setCounter(counter + 1);
-     }
+        if(counter > stock){
+            counter = stock;
+        }
+
+    }
 
      function Resta()
      {
-         setCounter(counter - 1);
+         setCounter(Math.max(counter - 1 , 0));
      }
+
 
     return (
         <div>
+            
             <button onClick={Resta}> - </button>
-            <p className="text-center">{counter}</p>
+            {counter}
             <button onClick={Suma}> + </button>
         </div>
     )
