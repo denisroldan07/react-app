@@ -1,41 +1,40 @@
-import { Card , CardBody,CardTitle,CardSubtitle,CardLink, CardText } from "reactstrap";
+//import { Card , CardBody,CardTitle,CardSubtitle,CardLink, CardText } from "reactstrap";
 import ItemCount from './ItemCount'
+import ItemList from "./ItemList";
+import { useState , useEffect } from "react";
+import { getProducts } from "../Api/Api";
 
-export default function itemContainer({greeting}) 
+
+export default function ItemContainer({greeting}) 
 {  
+  const [products , setProducts] = useState([]);
+
+
+
+  useEffect(() => {
+
+    getProducts().then(function(products) 
+    {
+      console.log(products);  
+
+      setProducts(products);
+    })
+
+  }, []);
+
+  
+  function AgregarAlCarrito (itemCount)
+  {
+    console.log(itemCount);
+    return ;
+  }
+  
     return (
-        <div>
-  <Card>
-    <CardBody>
-      <CardTitle tag="h5">
-        {greeting} !!
-      </CardTitle>
-      <CardSubtitle
-        className="mb-2 text-muted"
-        tag="h6"
-      >
-        Card subtitle
-      </CardSubtitle>
-    </CardBody>
-    <img
-      className="mx-auto d-block"
-      alt="Card image cap"
-      src="https://picsum.photos/318/180"
-      width="75%"
-      
-    />
-    <CardBody>
-      <CardText>
-        Some quick example text to build on the card title and make up the bulk of the card's content.
-      </CardText>
-      <CardLink href="#">
-        <ItemCount stock={5} initial={1}></ItemCount>
-      </CardLink>
-      <CardLink href="#">
-        Another Link
-      </CardLink>
-    </CardBody>
-  </Card>
-</div>
+      <div>
+        <p>{greeting}</p>        
+        {products.lenght > 0 ? <ItemList products={products} /> : <p>Cargando ...</p>}
+        <ItemCount stock={5} initial={1} onAdd={AgregarAlCarrito}></ItemCount>
+
+      </div>
     );
 }
