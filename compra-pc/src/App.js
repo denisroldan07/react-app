@@ -2,7 +2,9 @@ import React from 'react';
 import { Container , Row , Col} from 'reactstrap';
 import NavBar from './NavBar/NavBar';
 import ItemListContainer from './ItemListContainer/ItemListContainer';
+import ItemDetailContainer from './ItemDetailContainer/ItemDetailContainer';
 import './NavBar/NavBar.css';
+
 
 
 function App() {
@@ -17,6 +19,7 @@ function App() {
           <Row>
             <Col className='bg-dark text-white' md="4">
               <p>Columna de 4</p>
+              <ItemDetailContainer></ItemDetailContainer>
             </Col>
 
             <Col className='bg-success' md="8">
