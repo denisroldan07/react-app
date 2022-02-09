@@ -1,38 +1,35 @@
 //import { Card , CardBody,CardTitle,CardSubtitle,CardLink, CardText } from "reactstrap";
-import ItemCount from './ItemCount'
-import ItemList from "./ItemList";
+
 import { useState , useEffect } from "react";
 import { getProducts } from "../Api/Api";
+import ItemCount from './ItemCount'
+import ItemList from "./ItemList";
+
 
 
 export default function ItemContainer({greeting}) 
 {  
-  const [products , setProducts] = useState([]);
+  const [products , setProducts] = useState();
 
 
 
   useEffect(() => {
 
-    getProducts().then(function(products) 
-    {
-      console.log(products);  
-
-      setProducts(products);
-    })
+    getProducts().then((products => setProducts(products)));
 
   }, []);
 
-  
-  function AgregarAlCarrito (itemCount)
+  function AgregarAlCarrito (counter)
   {
-    console.log(itemCount);
-    return ;
+    console.log(counter);
   }
   
+  
+
     return (
       <div>
-        <p>{greeting}</p>        
-        {products.lenght > 0 ? <ItemList products={products} /> : <p>Cargando ...</p>}
+        <p>{greeting}</p>       
+        {!products ? <p>Cargando ...</p> : <ItemList products={products}></ItemList>}
         <ItemCount stock={5} initial={1} onAdd={AgregarAlCarrito}></ItemCount>
 
       </div>
