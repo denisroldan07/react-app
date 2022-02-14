@@ -15,11 +15,11 @@ li
     align-items: center;
     justify-content: space-between;
     padding: 20px;
-    background-color: teal;
-    color: #fff;
+    background-color:  #f9f9f9;
+    color: black;
    }
    .nav-links a {
-    color: #fff;
+    color: black;
    }
    /* LOGO */
    .logo {
@@ -32,7 +32,7 @@ li
     font-size: 18px;
    }
    .menu li:hover {
-    background-color: #4c9e9e;
+    background-color: rgb(13, 110, 253);
     border-radius: 5px;
     transition: 0.3s ease;
    }
@@ -50,8 +50,11 @@ li
     display: none;
     border-radius: 8px;
     top: 35px;
+    right: 3px;
    }
    .dropdown li + li {
+    left: auto;
+    right:500px;
     margin-top: 10px;
    }
    .dropdown li {

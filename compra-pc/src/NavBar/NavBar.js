@@ -1,39 +1,50 @@
 import React from 'react';
 import './NavBar.css';
+import { useState } from 'react';
+import { Navbar , NavbarBrand , NavbarToggler , Collapse , Nav , NavItem, NavLink} from 'reactstrap';
 import CartWidget from './CartWidget'
 
 
 export default function NavBar() {
+  const [isOpen , setIsOpen] = useState(false);
 
     return (
 
-      <nav className="navbar">
-     {/* <!-- LOGO --> */}
-     <div classNameName="logo">MUO</div>
-     {/* <!-- NAVIGATION MENU --> */}
-     <ul className="nav-links">
-       {/* <!-- USING CHECKBOX HACK --> */}
-       <input type="checkbox" id="checkbox_toggle" />
-       <label for="checkbox_toggle" className="hamburger">&#9776;</label>
-       {/* <!-- NAVIGATION MENUS --> */}
-       <div className="menu">
-         <li><a href="/">Home</a></li>
-         <li><a href="/">About</a></li>
-         <li><a href="/">Contact</a></li>
-         <li className="services">
-           <CartWidget></CartWidget>
-           {/* <!-- DROPDOWN MENU --> */}
-           <ul className="dropdown">
-             <li><a href="/">Dropdown 1 </a></li>
-             <li><a href="/">Dropdown 2</a></li>
-             <li><a href="/">Dropdown 2</a></li>
-             <li><a href="/">Dropdown 3</a></li>
-             <li><a href="/">Dropdown 4</a></li>
-           </ul>
-         </li>
-       </div>
-     </ul>
-   </nav>
+<div>
+  <Navbar
+    color="light"
+    expand="md"
+    light
+  >
+    <NavbarBrand href="/">
+      Compra-PC
+    </NavbarBrand>
+    <NavbarToggler onClick={() => {setIsOpen(!isOpen)}} />
+    <Collapse isOpen={isOpen} navbar>
+      <Nav
+        className="me-auto"
+        navbar
+      >
+        <NavItem>
+          <NavLink href="/Productos/">
+            Productos
+          </NavLink>
+        </NavItem>
+        <NavItem>
+          <NavLink href="#">
+            Contacto
+          </NavLink>
+        </NavItem>
+        
+      </Nav>
+      <NavItem>
+          <NavLink href='#'>
+            <CartWidget></CartWidget>
+          </NavLink>
+        </NavItem>
+    </Collapse>
+  </Navbar>
+</div>
     );
     
 }

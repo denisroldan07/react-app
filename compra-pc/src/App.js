@@ -1,38 +1,45 @@
 import React from 'react';
-import { Container , Row , Col} from 'reactstrap';
+//import { BrowserRouter, Routes , Route } from 'react-router-dom';
+//import { Container , Row , Col} from 'reactstrap';
 import NavBar from './NavBar/NavBar';
-import ItemListContainer from './ItemListContainer/ItemListContainer';
-import ItemDetailContainer from './ItemDetailContainer/ItemDetailContainer';
+import SeccionProductos from './SeccionProductos/SeccionProductos';
 import './NavBar/NavBar.css';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import ItemDetailContainer from './ItemDetailContainer/ItemDetailContainer';
 
 
 
 function App() {
   return (
-
+    <BrowserRouter>
     <div>
+
+    <header>
   
     <NavBar></NavBar>
 
+    </header>
 
-    <Container className="bg-light border" fluid>
-          <Row>
-            <Col className='bg-dark text-white' md="4">
-              <p>Columna de 4</p>
-              <ItemDetailContainer></ItemDetailContainer>
-            </Col>
-
-            <Col className='bg-success' md="8">
-              <p className='text-center'>Columna de 8</p>
-              <ItemListContainer greeting={"Greeting"}></ItemListContainer>
-            </Col>
-
-          </Row>
-    </Container>
+    <main>
+    <Routes>
+    
+    <Route
+      path='/Productos'
+      element={<SeccionProductos></SeccionProductos>}
+    >
+    </Route>
+    <Route
+      path='/Productos/:itemId'
+      element={<ItemDetailContainer></ItemDetailContainer>}
+    >
+    </Route>
+    
+    
+    </Routes>
+    </main>
 
     </div>
-
-    
+    </BrowserRouter>
   );
 }
 
