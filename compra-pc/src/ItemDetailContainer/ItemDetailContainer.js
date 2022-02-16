@@ -21,7 +21,7 @@ export default function ItemDetailContainer(){
    
     return (
         <div>
-        {!item ? <p>Cargando ...</p> :  <ItemDetail item={item}></ItemDetail>}
+        {!item ? <p>Cargando ...</p> :  <ItemDetail key={item.id} item={item}></ItemDetail>}
         </div>
     );
         

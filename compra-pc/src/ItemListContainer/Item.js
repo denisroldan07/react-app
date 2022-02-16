@@ -1,19 +1,22 @@
 import { Row , Col, CardBody, CardTitle, CardText, Button} from "reactstrap";
 import ItemCount from "./ItemCount";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 export default function Item({ item }){
+    const [itemCount , setItemCount] = useState();
     
-    function AgregarAlCarrito (counter)
+    function onAddItem(newItemCount)
     {
-      console.log(counter);
+      console.log(newItemCount);
+      setItemCount(newItemCount);
     }
 
     return (    
-            <div key={item.id} className="card mb-3">
+            <div key={item.id} className="card mb-3 border border-2 border-primary rounded">
                 <Row noGutters>
                     <Col md='4'>
-                        <img src={item.imagen} alt='imagen' width={200} height={200}></img>    
+                        <img src={item.imagen} alt='imagen' className="img-fluid"></img>    
                     </Col>
                     <Col md='8'>
                         <CardBody>
@@ -25,7 +28,7 @@ export default function Item({ item }){
                             
                           
 
-                            <CardText>{item.cantidad > 0 ? <ItemCount stock={item.cantidad} initial={1} onAdd={AgregarAlCarrito}></ItemCount> : <Button disabled>Agotado</Button>}</CardText>
+                            <CardText>{item.cantidad > 0 ? <ItemCount stock={item.cantidad} initial={1} onAdd={onAddItem}></ItemCount> : <Button disabled>Agotado</Button>}</CardText>
                            
                         </CardBody>
                     </Col>

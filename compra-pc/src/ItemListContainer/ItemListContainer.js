@@ -7,7 +7,7 @@ import ItemList from "./ItemList";
 
 
 
-export default function ItemContainer({greeting}) 
+export default function ItemContainer() 
 {  
   const [products , setProducts] = useState();
 
@@ -18,8 +18,8 @@ export default function ItemContainer({greeting})
   }, []);
   
     return (
-      <div>
-        <p>{greeting}</p>       
+      <div className="mt-3">
+             
         {!products ? <Spinner>Loading...</Spinner> : <ItemList products={products}></ItemList>}
         
 

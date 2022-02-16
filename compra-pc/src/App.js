@@ -28,6 +28,7 @@ function App() {
       element={<SeccionProductos></SeccionProductos>}
     >
     </Route>
+    
     <Route
       path='/Productos/:itemId'
       element={<ItemDetailContainer></ItemDetailContainer>}

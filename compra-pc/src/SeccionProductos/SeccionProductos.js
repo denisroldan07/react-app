@@ -12,7 +12,7 @@ export default function SeccionProductos() {
                 </Col>
 
                 <Col  md="8">                
-                    <ItemListContainer greeting={"Compra-PC"}></ItemListContainer>            
+                    <ItemListContainer></ItemListContainer>            
                 </Col>
 
             </Row>

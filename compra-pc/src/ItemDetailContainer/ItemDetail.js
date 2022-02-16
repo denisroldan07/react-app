@@ -1,13 +1,15 @@
 import { Row , Col, CardBody, CardTitle, CardText, Button} from "reactstrap";
 import ItemCount from "../ItemListContainer/ItemCount";
 import { Link } from "react-router-dom";
-
+import {useState} from 'react';
 
 export default function ItemDetail({ item }){
+    const [itemCount , setItemCount] = useState();
     
-    function AgregarAlCarrito (counter)
+    function onAddItem(newItemCount)
     {
-      console.log(counter);
+      console.log(newItemCount);
+      setItemCount(newItemCount);
     }
     
     return (
@@ -21,8 +23,17 @@ export default function ItemDetail({ item }){
                     <CardTitle>{item.nombre}</CardTitle>
                     <CardText><p>Precio: {item.precio}</p></CardText>
                     <CardText><p>Stock: {item.cantidad}</p></CardText>
+
+                    {
+                        !itemCount ? <CardText>{item.cantidad > 0 ? 
+                        <ItemCount 
+                            stock={item.cantidad} 
+                            initial={1} 
+                            onAdd={onAddItem}>  
+                        </ItemCount> : <Button disabled>Agotado</Button>}</CardText> : <Link to="/cart">Ir al carrito</Link>
+                    }
                     
-                    <CardText>{item.cantidad > 0 ? <ItemCount stock={item.cantidad} initial={1} onAdd={AgregarAlCarrito}></ItemCount> : <Button disabled>Agotado</Button>}</CardText>
+                    
 
                     <CardText><Button color="danger"><Link to={`/Productos`}>Volver a la lista de productos</Link></Button></CardText> 
 
