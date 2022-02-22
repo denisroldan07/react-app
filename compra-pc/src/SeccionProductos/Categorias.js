@@ -1,43 +1,26 @@
 import React from "react";
-import { getProducts } from "../Api/Api";
 import {
   ButtonDropdown,
   DropdownToggle,
   DropdownMenu,
   DropdownItem
 } from "reactstrap";
-import { Link } from "react-router-dom";
 
 
-export default function Categorias() {
+
+export default function Categorias(categoryItems,setItem,item) {
   // ButtonDropdown open state
   const [dropdownOpen, setOpen] = React.useState(false);
-  const [item , setItem] = React.useState([]);
 
-  React.useEffect(() => {
-
-    getProducts().then((item) => setItem(item))
-  
-  })
-  
-
-function removeDuplicates(item) {
-    var unique = [];
-    item.forEach(element => {
-        if (!unique.includes(element.categoria)) {
-            unique.push(element.categoria);
-        }
+  const filterItem = (curcat) => {
+    const newItem = item.filter((newVal) => {
+      return newVal.category === curcat; 
+            // comparing category for displaying data
     });
-    return unique;
-}
-
-var filtrados = removeDuplicates(item);
+    setItem(newItem);
+  };
 
 
-  
-   
-
-  
   return (
     
       <div style={{
@@ -50,10 +33,16 @@ var filtrados = removeDuplicates(item);
               </DropdownToggle>
               <DropdownMenu>
                   <DropdownItem header>Selecciona una</DropdownItem>
-                  {filtrados.map((filtrados) => (
-                    <DropdownItem><Link to={`Productos/${filtrados}`}></Link>{filtrados}</DropdownItem>
-                  ))}
- 
+                  {/* {categoryItems.map((val,id) => {
+                    
+                    return(
+                      <DropdownItem 
+                          key={id} 
+                          onClick={() => filterItem(val)}>{val}</DropdownItem>
+                    )
+                  })} */}
+                  <DropdownItem 
+                    onClick={() => setItem(item)}> Todos</DropdownItem>
               </DropdownMenu>
           </ButtonDropdown>
       </div>
