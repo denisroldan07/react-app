@@ -1,8 +1,10 @@
-import Cart from './shopping-cart.png'
+import CartImage from './shopping-cart.png'
 import './CartWidget.css'
+import { Link } from 'react-router-dom'
 
 export default function CartWidget(){
     return (
-        <img src={Cart} alt='Carrito' className='cartImage'></img>
+        <Link to={"/Cart"}><img src={CartImage} alt='Carrito' className='cartImage'></img></Link>
+        
     )
 }

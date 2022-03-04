@@ -4,7 +4,6 @@ import { useState } from 'react';
 import { Navbar , NavbarBrand , NavbarToggler , Collapse , Nav , NavItem, NavLink} from 'reactstrap';
 import CartWidget from './CartWidget'
 
-
 export default function NavBar() {
   const [isOpen , setIsOpen] = useState(false);
 
@@ -38,8 +37,10 @@ export default function NavBar() {
         
       </Nav>
       <NavItem>
-          <NavLink href='#'>
-            <CartWidget></CartWidget>
+          <NavLink>
+            <CartWidget>
+          
+            </CartWidget>
           </NavLink>
         </NavItem>
     </Collapse>

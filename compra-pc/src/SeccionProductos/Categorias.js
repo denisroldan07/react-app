@@ -8,18 +8,9 @@ import {
 
 
 
-export default function Categorias(categoryItems,setItem,item) {
+export default function Categorias() {
   // ButtonDropdown open state
   const [dropdownOpen, setOpen] = React.useState(false);
-
-  const filterItem = (curcat) => {
-    const newItem = item.filter((newVal) => {
-      return newVal.category === curcat; 
-            // comparing category for displaying data
-    });
-    setItem(newItem);
-  };
-
 
   return (
     
@@ -33,16 +24,6 @@ export default function Categorias(categoryItems,setItem,item) {
               </DropdownToggle>
               <DropdownMenu>
                   <DropdownItem header>Selecciona una</DropdownItem>
-                  {/* {categoryItems.map((val,id) => {
-                    
-                    return(
-                      <DropdownItem 
-                          key={id} 
-                          onClick={() => filterItem(val)}>{val}</DropdownItem>
-                    )
-                  })} */}
-                  <DropdownItem 
-                    onClick={() => setItem(item)}> Todos</DropdownItem>
               </DropdownMenu>
           </ButtonDropdown>
       </div>

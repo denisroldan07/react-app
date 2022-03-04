@@ -14,10 +14,6 @@ export default function ItemDetailContainer(){
         });
     }, [itemId]);
 
-    console.log("el console log de abajo");
-    console.log(item);
-
-
    
     return (
         <div>

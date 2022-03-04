@@ -22,13 +22,13 @@ export default function Item({ item }){
                         <CardBody>
                             <CardTitle>{item.nombre}</CardTitle>
                             <CardText><p>Precio: {item.precio}</p></CardText>
-                            <CardText><p>Stock: {item.cantidad}</p></CardText>
+                            <CardText><p>Stock: {item.stock}</p></CardText>
                             
                             <CardText><Button color="info"><Link to={`/Productos/${item.id}`}>Ver detalle</Link></Button></CardText> 
                             
                           
 
-                            <CardText>{item.cantidad > 0 ? <ItemCount stock={item.cantidad} initial={1} onAdd={onAddItem}></ItemCount> : <Button disabled>Agotado</Button>}</CardText>
+                            <CardText>{item.stock > 0 ? <ItemCount stock={item.stock} initial={1} onAdd={onAddItem}></ItemCount> : <Button disabled>Agotado</Button>}</CardText>
                            
                         </CardBody>
                     </Col>

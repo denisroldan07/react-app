@@ -6,16 +6,18 @@ import SeccionProductos from './SeccionProductos/SeccionProductos';
 import './NavBar/NavBar.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import ItemDetailContainer from './ItemDetailContainer/ItemDetailContainer';
-import {cartContext} from './Context/cartContext';
-import cartContextProvider from './Context/cartContext';
+import CartContextProvider from './Context/CartContextProvider';
+import Cart from './Cart/Cart';
 
 function App() {
   return (
-    <cartContextProvider>
+    <CartContextProvider>
       <BrowserRouter>
         <div>
             <header>
-            <NavBar></NavBar>
+            <NavBar>
+
+            </NavBar>
             </header>
 
           <main>
@@ -32,11 +34,15 @@ function App() {
               >
               </Route>
             </Routes>
+
+            <Routes>
+                <Route path='/Cart' element={<Cart></Cart>}></Route>
+            </Routes>
           </main>
 
         </div>
       </BrowserRouter>
-    </cartContextProvider>
+      </CartContextProvider>
   );
 }
 
